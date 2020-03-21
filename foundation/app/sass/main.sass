@@ -1,0 +1,684 @@
+@import vars
+@import fonts
+@import libs
+
+*
+	margin: 0
+	padding: 0
+	
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: $text
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: 'Roboto', sans-serif
+	overflow-x: hidden
+	color: $text
+
+// Custom Sass / Remove before use
+
+.container
+	max-width: 1180px
+	padding:
+		right: $gutter/2
+		left: $gutter/2
+	margin:
+		left: auto
+		right: auto
+	
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.example-grid
+	display: grid
+	grid-gap: $gutter
+	grid-template-columns: 1fr 1fr
+	grid-template-areas: "left right"
+	> div:first-child
+		grid-area: left
+	> div:last-child
+		grid-area: right
+	+media-breakpoint-down(xs)
+		display: block
+		> div
+			padding: $gutter/2 0
+	
+.example-img
+	width: 100%
+
+.parent // Lazy Load Placeholder Generator: https://webdesign-master.ru/services/lazy/
+	background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7)
+
+.header 
+	height: 100vh
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+.logo__content
+	display: flex
+	padding: 40px 0 0 40px
+
+.logo-text
+	line-height: 35px
+	font-family: AvenirNextRoundedStd
+	padding-left: 23px
+	font-size: 24px
+	letter-spacing: 2px
+	position: relative
+	&:after
+		content: ""
+		top: 33px
+		left: 25px
+		width: 36px
+		height: 3px
+		background-color: $accent
+		position: absolute
+
+
+.logo__img 
+	height: 47px
+	width: 30px
+
+.header__nav .nav 
+	padding-top: 40px
+
+.nav__item
+	display: inline
+	padding-right: 55px
+	line-height: 60px
+	font-family: AvenirNextRoundedStd
+	font-weight: 500
+	color: $text
+	transition: 0.3s 
+	&:hover 
+		color: #b8b8b8
+		text-decoration: none
+
+.burger-menu__button
+	position: fixed
+	top: 10px
+	right: 10px
+	z-index: 30
+	width: 60px
+	height: 60px
+	border-radius: 30%
+	background-color: rgba(255,255,255, 0.5)
+	transition: 0.4s
+
+.burger-menu__lines, .burger-menu__lines::after, .burger-menu__lines::before
+	position: absolute
+	width: 30px
+	height: 4px
+	background-color: #2a2a2a
+	transition: 0.5s
+
+.burger-menu__lines
+	top: 50%
+	right: 0
+	transform: translate(-50%, -50%)
+	&:before
+		content: ''
+		top: -12px
+	&:after
+		content: ''
+		top: 12px
+
+.burger-menu__button:hover .burger-menu__lines
+	filter: brightness(0.7)
+
+.burger-menu_active .burger-menu__buttons, 
+.burger-menu_active .burger-menu__lines 
+	background-color: transparent
+
+.burger-menu_active .burger-menu__lines::before 
+	top: 0
+	transform: rotate(45deg)
+
+.burger-menu_active .burger-menu__lines::after
+	top: 0
+	transform: rotate(-45deg)
+
+.burger-menu .nav
+	padding-top: 80px
+	position: fixed
+	z-index: 20
+	display: flex
+	flex-flow: column
+	height: 100%
+	background-color: #2a2a2a
+	overflow-y: auto
+	right: -100%
+	transition: 0.5s
+
+.burger-menu_active .nav 
+	right: 0
+
+.burger-menu .nav__item
+	padding: 25px
+	
+.burger-menu__overlay 
+	display: none
+	position: fixed
+	top: 0
+	right: 0
+	width: 100vw
+	height: 100vh
+	z-index: 10
+
+.burger-menu_active .burger-menu__overlay
+	display: block
+
+.header__nav .burger-menu__button
+	display: none
+
+.break 
+	flex-basis: 100%
+	height: 0
+
+.break-column
+	flex-basis: 100%
+	width: 0
+
+.header__quote 
+	padding-left: 118px
+	margin-top: 380px
+	p
+		font-family: OpenSans
+		font-weight: 700
+		font-size: 15px
+		margin: 0
+		float: right
+		padding-right: 50px
+		span
+			color: #fd634e
+
+.header__title 
+	font-family: AvenirNextRoundedStd
+	font-weight: 400
+	font-size: 40px
+	margin: 0
+	line-height: 40px
+	span
+		color: $accent
+
+.header__overline
+	width: 100%
+	height: auto
+	background-color: rgba(253, 99, 78, 0.6)
+	-webkit-clip-path: polygon(0 79%, 100% 13%, 100% 100%, 0 100%)
+	clip-path: polygon(0 79%, 100% 13%, 100% 100%, 0 100%)
+	
+.content__top
+	background-color: $accent
+	padding-top: 110px
+.content__item
+	padding-right: 40px
+	&:last-child
+		padding: 0
+	img
+		margin-bottom: 25px
+		max-height: 35px
+	a
+		font-family: ProximaNova
+		font-weight: 400
+		font-size: 14px
+		color: $text
+		text-decoration: none
+.content__list
+	display: flex
+	justify-content: center
+	margin-bottom: 110px
+.list-title 
+	margin-bottom: 23px
+	font-family: OpenSans
+	font-weight: 400
+	font-size: 24px
+.list-description 
+	font-family: ProximaNova
+	font-weight: 400
+	font-size: 14px
+	min-height: 95px
+	padding-bottom: 20px
+	margin: 0
+
+.grid__item
+	flex-basis: 400px
+	background-color: $text
+	text-align: center
+	padding: 56px 0 80px 0
+
+.grid__item_wide
+	flex: 1
+	
+.grid
+	display: flex
+
+.grid__img
+	padding: 0 0 15px 0
+	
+.grid__desc
+	font-family: OpenSans
+	font-weight: 400
+	font-size: 14px
+	color: #656e74
+	margin: 0
+
+.grid__pretitle 
+	font-family: Montserrat
+	font-weight: 600
+	font-size: 14px
+	color: #fd634e
+	text-transform: uppercase
+	margin: 0
+	letter-spacing: 2px
+
+.grid__title 
+	font-family: OpenSans
+	font-weight: 200
+	font-size: 35px
+	color: $accent
+	text-transform: uppercase
+	line-height: 40px
+	margin-bottom: 20px
+.grid__link
+	color: $accent
+	font-family: OpenSans
+	font-weight: 400
+	font-size: 14px
+
+.active-users 
+	background-image: url(../img/grid/active-users.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	display: flex
+	align-items: flex-end
+	justify-content: flex-end
+	padding: 0 50px 50px 0
+	p
+		margin: 0
+		font-family: OpenSans
+		font-weight: 400
+		font-size: 12px
+		padding-right: 15px
+		line-height: 25px
+		color: #f7614c
+		span
+			color: $text
+
+.product-used
+	background-image: url(../img/grid/product-used.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	display: flex
+	align-items: flex-end
+	padding: 0 0 50px 50px
+	flex-grow: 6
+	p
+		margin: 0
+		font-family: OpenSans
+		font-weight: 400
+		font-size: 12px
+		padding-right: 15px
+		line-height: 25px
+
+.content__bottom
+	background-color: #fd634e
+
+.track-your
+	background-image: url(../img/grid/track-your.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	height: 310px
+
+	
+.health-fitness
+	background-image: url(../img/grid/health-fitness.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+
+.date 
+	float: left
+	padding: 60px 0 0 60px
+	font-family: Montserrat
+	font-weight: 400
+	text-transform: uppercase
+.health-title
+	float: right
+	padding: 60px 60px 0 0
+	span
+		font-family: Montserrat
+		font-weight: 400
+		text-transform: uppercase
+		padding-right: 10px
+
+.grid-lifestyle
+	text-align: left
+	padding: 56px 5px 60px 40px 
+	position: relative
+	background-color: $text
+
+	
+.lifestyle__img
+	position: absolute
+	top: 22%
+	right: 50px
+	max-width: 100%
+	height: auto
+
+.summer-grid
+	background-color: $accent
+	padding: 60px 0 0 60px
+	flex-grow: 6
+	-webkit-box-shadow: 0px 0px 44px -2px rgba(0,0,0,0.5)
+	-moz-box-shadow: 0px 0px 44px -2px rgba(0,0,0,0.5)
+	box-shadow: 0px 0px 44px -2px rgba(0,0,0,0.5)
+	z-index: 1
+
+.summer-title 
+	font-family: OpenSans
+	font-weight: 200
+	font-size: 40px
+	text-transform: uppercase
+	line-height: 20px
+	padding-bottom: 20px
+
+.summer-desc
+	font-family: OpenSans
+	font-weight: 400
+	font-size: 13px
+
+.get-involved
+	background-image: url(../img/grid/get-involved.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center
+	height: 330px
+
+.fruits
+	background-image: url(../img/grid/fruits.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center
+
+.eating_habits
+	background-color: $accent
+	text-align: left
+	padding: 56px 5px 60px 40px 
+	position: relative
+	h2
+		color: $text
+	img
+		right: 35px
+
+.habits_pretitle
+	font-size: 17px
+	color: $text
+	
+.habits_desc	
+	color: $text
+	max-width: 300px
+
+.content-end
+
+	height: 100vh
+	display: flex
+	align-items: center
+	justify-content: center
+	flex-direction: column
+	position: relative
+
+.end__title
+	font-family: OpenSans
+	font-weight: 400
+	font-size: 45px
+
+.end__desc
+	font-family: OpenSans
+	font-weight: 400
+	font-size: 16px
+	max-width: 490px
+
+.end__box
+	width: 100%
+	height: 165px
+	background-color: rgba(13, 17, 25, 1)
+	-webkit-clip-path: polygon(50% 35%, 100% 0, 100% 100%, 0 100%, 0 0)
+	clip-path: polygon(50% 35%, 100% 0, 100% 100%, 0 100%, 0 0)
+	position: absolute
+	bottom: -1px
+	right: 0
+
+.end__line
+	width: 100%
+	height: 30px
+	background-color: rgba(253, 99, 78, 1)
+	-webkit-clip-path: polygon(29% 0, 81% 100%, 0 100%, 0 0)
+	clip-path: polygon(29% 0, 81% 100%, 0 100%, 0 0)
+	position: absolute
+	bottom: 0
+	right: 0
+
+.footer
+	background-color: #0d1119
+	height: 100vh
+	padding-top: 65px
+
+.footer__icon
+	font-size: 24px
+	width: 48px
+	padding: 12px 0 12px 0
+	text-align: center
+	border-radius: 50%
+	margin-right: 10px
+	color: $text
+.grid-row
+	padding-right: 25px
+	p
+		font-family: OpenSans
+		font-weight: 400
+
+.footer__title
+	font-size: 15px
+	color: $text
+
+.footer__desc
+	font-size: 14px
+	color: #8297a7
+
+.row__last
+	min-width: 260px
+	padding-right: 0
+	
+
+.fa-facebook-f
+	background-color: #2e3192
+
+.fa-twitter
+	background-color: #00aeef
+
+.fa-youtube	
+	background-color: #ed3123
+
+.fa-linkedin-in
+	background-color: #171a8f
+	
+.flex-right
+	justify-content: flex-end
+	padding-top: 20px
+
+.footer__form
+	font-family: ProximaNova
+	font-weight: 400
+	color: #83969f
+	border-radius: 3px
+	border: none
+
+.button__submit
+	padding: 10px 23px 10px 23px 
+	background-color: $accent
+	color: $text
+	i
+		padding-left: 10px
+		font-size: 11px
+
+.form__name
+	padding: 10px 0px 10px 20px 
+
+.form__email
+	padding: 10px 148px 10px 20px 
+
+
+	
+
+		
+/*
+	Pre loader
+	*/
+
+#cube-loader 
+	 align-items: center
+	 display: flex
+	 height: 100%
+	 width: 100%
+	 position: fixed
+	 background-color: #fff
+	 z-index: 1000
+
+#cube-loader .caption 
+	 margin: 0 auto
+
+#cube-loader .cube-loader 
+	 width: 73px
+	 height: 73px
+	 margin: 0 auto
+	 margin-top: 49px
+	 position: relative
+	 transform: rotateZ(45deg)
+
+#cube-loader .cube-loader .cube 
+	 position: relative
+	 transform: rotateZ(45deg)
+	 width: 50%
+	 height: 50%
+	 float: left
+	 transform: scale(1.1)
+
+#cube-loader .cube-loader .cube:before 
+	 content: ""
+	 position: absolute
+	 top: 0
+	 left: 0
+	 width: 100%
+	 height: 100%
+	 background-color: rgba(52, 73, 94, 1.0)
+	 animation: cube-loader 2.76s infinite linear both
+	 transform-origin: 100% 100%
+
+#cube-loader .cube-loader .loader-2 
+	 transform: scale(1.1) rotateZ(90deg)
+
+#cube-loader .cube-loader .loader-3 
+	 transform: scale(1.1) rotateZ(180deg)
+
+#cube-loader .cube-loader .loader-4 
+	 transform: scale(1.1) rotateZ(270deg)
+
+#cube-loader .cube-loader .loader-2:before 
+	 animation-delay: 0.35s
+
+#cube-loader .cube-loader .loader-3:before 
+	 animation-delay: 0.69s
+
+#cube-loader .cube-loader .loader-4:before 
+	 animation-delay: 1.04s
+
+@keyframes cube-loader 
+	0%, 10% 
+		transform: perspective(136px) rotateX(-180deg)
+		opacity: 0
+	25%, 75% 
+		transform: perspective(136px) rotateX(0deg)
+		opacity: 1
+	90%, 100% 
+		transform: perspective(136px) rotateY(180deg)
+		opacity: 0
+
+
+@media (max-width: 1050px)
+	.content__list
+		flex-wrap: wrap
+	.content__item
+		padding-bottom: 50px
+		padding-right: 0
+		&:last-child
+			padding-bottom: 50px
+
+	.list-description
+		min-height: 1px
+	
+@media (max-width: 992px)
+	.grid__item
+		flex-basis: 100% !important
+		height: 400px
+	.grid__item_wide
+		flex-basis: 100% !important
+		height: 400px
+	.grid
+		flex-wrap: wrap
+	.lifestyle__img
+		display: none
+	.footer
+		height: auto
+	.grid-lifestyle, .summer-grid, .eating_habits
+		float: none
+		text-align: center
+		padding-left: 0
+	.summer-desc, .habits_desc, .grid__desc
+		padding: 0 45px 0 45px
+	.habits_desc
+		max-width: none
+
+@media (max-width: 768px)
+		.end__title, .end__desc
+			text-align: center
+		.end__desc
+			padding: 0 5px 0 5px
+		.footer__form
+			width: 100%
+			margin-bottom: 10px
+		.grid-row
+			padding: 0
+		.flex-right
+			justify-content: center
+
+@media screen and (max-width: 600px)
+	.header__quote
+		text-align: center
+		flex-basis: 100%
+		padding: 0
+		margin-top: 200px
+		p
+			float: none
+			padding: 0
+	.header__title 
+		font-size: 30px
+	.summer-title
+		font-size: 30px
+

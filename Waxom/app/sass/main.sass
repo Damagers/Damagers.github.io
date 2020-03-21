@@ -1,0 +1,565 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+html, body
+	height: 100%
+
+a
+	text-decoration: none
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	input, textarea
+			border: #666 1px solid
+			outline: none
+			&:focus:required:invalid
+				border-color: red
+			&:required:valid
+				border-color: green
+
+h1, h2, h3, h4, h5, h6
+	font-family: 'Raleway', sans-serif
+
+p
+	font-family: 'Montserrat', sans-serif
+
+.img-responsive
+	max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+          
+.header
+	height: 100vh
+	padding-top: 40px
+	width: 100% 
+.bg-light
+	background-color: rgba(255, 255, 255, 0) !important
+.nav-link
+	font-size: 13px
+	color: #fff !important
+	font-family: 'Montserrat', sans-serif
+	font-weight: 300
+	&:hover 
+		color: #c7b299 !important
+		transition: 0.7s !important
+.nav-image
+	display: inline-block
+.navbar-toggler
+	border-color: #fff !important
+.navbar-toggler-icon
+	background-image: url(../img/toggler.png) !important
+	width: 1.1em
+	height: 1.1em
+.nav-icon
+	padding-top: 10px
+	max-width: 100%
+.icon-padding
+	padding-right: 19px
+.header-unique
+	font-weight: 500
+	color: #fff
+	font-size: 36px
+.header-title
+	font-weight: 800
+	color: #fff
+	font-size: 52px
+.header-caption
+	font-weight: 300
+	color: #fff
+	font-size: 16px
+	margin-bottom: 55px
+.button-main
+	background-color: #998675
+	border: none
+	border-bottom: 3px solid #736357
+	border-radius: 3px
+	width: 11em
+	height: 3.1em
+	font-family: 'Raleway', sans-serif
+	font-weight: 800
+	color: #fff
+	font-size: 14px
+.services
+	padding: 81px 0 81px 0
+.service-icon
+	margin-bottom: 30px
+.service-title
+	font-weight: 600
+	font-size: 22px
+	color: #555555
+	margin-bottom: 20px
+.service-caption
+	font-weight: 300
+	font-size: 14px
+	color: #8c8c8c
+.line-separator
+	width: 70px
+	height: 3px
+	background: #f1eee9
+	margin: 0 auto
+.ideas
+	background-color: #fbfaf8
+	padding-top: 84px
+	max-width: 100%
+.section-title
+	font-weight: 600
+	font-size: 30px
+	color: #555555
+	margin-bottom: 20px
+.ideas-caption
+	font-weight: 300
+	font-size: 16px
+	color: #8c8c8c
+	margin-bottom: 40px
+.ideas-image
+	max-width: 100%
+.text-box
+	background-image: linear-gradient(to right, #211b19 , #4e3427)
+	padding: 49px 0 39px 0
+.box-title
+	font-weight: 400
+	font-size: 28px
+	color: #fff
+	margin: 0
+.highlight
+	color: #c7b299
+.box-caption
+	font-weight: 300
+	font-size: 18px
+	color: #615855
+	margin: 0
+.header-content
+	margin-top: 270px
+.our-projects
+	padding: 80px 0 80px 0
+	ul,
+	li
+		list-style-type: none
+		margin: 0 auto
+		padding: 0 10px 0 0
+		text-align: center
+	li
+		display: inline-block
+		line-height: 2
+	ul
+		width: 100%
+.button-portfolio
+	background: none
+	border: 1px solid #ebebeb
+	padding: 0 16px 0 16px
+	margin-right: 10px
+	border-radius: 3px
+	height: 34px
+	outline: none
+	font-family: 'Montserrat', sans-serif
+	font-weight: 300
+	color: #8c8c8c
+	font-size: 14px
+.active-button 
+	background: #998675
+	color: #fff
+.mixiup_item
+	padding: 10px 0 40px 0
+	img
+		max-width: 100%
+		z-index: 1
+.portfolio-caption
+	background-color: #fbfaf8
+	padding: 30px 0 30px 30px
+.portfolio-title
+	font-weight: 500
+	font-size: 20px
+	color: #c7b299
+.portfolio-type
+	font-weight: 400
+	font-size: 14px
+	color: #d1d1d1
+	margin: 0
+.mix_container
+	margin-top: 30px
+.image_container
+	position: relative
+	&:after
+		content: ' '
+		background-color: #000
+		height: 100%
+		left: 0
+		opacity: 0
+		position: absolute
+		top: 0
+		width: 100%
+.portfolio-link
+	background-image: url(../img/hover/link.png)
+	position: absolute
+	top: 95px
+	left: 130px
+	opacity: 0
+	width: 26px
+	height: 25px
+	z-index: 1
+	&:hover
+		background-image: url(../img/hover/link-hover.png)
+.portfolio-loop
+	background-image: url(../img/hover/loop.png)
+	position: absolute
+	top: 95px
+	right: 130px
+	opacity: 0
+	width: 25px
+	height: 25px
+	z-index: 1
+	&:hover
+		background-image: url(../img/hover/loop-hover.png)
+.triangle
+	position: relative
+	max-width: 370px
+	&:after
+		content: ''
+		position: absolute 
+		left: 25px
+		bottom: 105px 
+		border: 30px solid transparent	
+		border-bottom: 20px solid #fbfaf8
+	&:hover
+		.portfolio-caption
+			background-color: #362f2d
+			transition: 0.7s
+		&:after
+			border-bottom: 20px solid #362f2d
+			transition: 0.7s
+		.portfolio-title
+			color: #fff
+		.portfolio-type
+			color: #c7b299 
+		.image_container
+			&:after
+				transition: 0.7s
+				opacity: 0.6
+		.portfolio-link
+			transition: 0.7s
+			opacity: 1
+		.portfolio-loop
+			transition: 0.7s
+			opacity: 1
+.video-presentation
+	padding: 210px 0 190px 0
+	height: auto
+	width: 100%
+	img
+		opacity: 0.6
+		&:hover
+			opacity: 1
+			transition: 0.7s
+.video-content
+	max-width: 555px
+	display: block
+	margin: 0 auto
+.video-title
+	padding-top: 35px
+	color: #fff
+	font-size: 30px
+.video-caption
+	font-size: 16px
+	color: #fff
+	margin-bottom: 35px
+.timecode
+	font-size: 14px
+	color: #c7b299
+	font-weight: 500
+.features
+	padding-top: 80px
+	background-color: #fbfaf8
+.iphone-image
+	text-align: right
+.features-caption
+	font-weight: 300
+	font-size: 16px
+	color: #8c8c8c
+.features-container
+	padding-top: 117px
+	ul,li
+		list-style-type: none
+		font-family: 'Montserrat', sans-serif
+		font-weight: 300
+		font-size: 16px
+		color: #8c8c8c
+		i
+			padding-right: 25px
+			color: #c7b299
+			font-size: 18px
+.counters
+	background-image: linear-gradient(to right, #211b19 , #4e3427)
+	padding: 70px 0 76px 0 
+.count_of
+	font-family: 'Montserrat', sans-serif
+	font-weight: 200
+	color: #fff
+	font-size: 48px
+	margin: 0
+	line-height: 1.8
+.count-caption
+	font-weight: 500
+	font-size: 14px
+	color: #c7b299
+	margin-bottom: 30px
+.counts-separator
+	width: 30px
+	height: 2px
+	background: #fff
+	margin: 0 auto
+.recent-posts
+	padding: 80px 0 80px 0 
+.section-posts-caption
+	font-weight: 300
+	font-size: 16px
+	color: #8c8c8c
+.post-cover
+	position: relative
+	&:hover
+		background-color: #362f2d
+		transition: 0.6s
+		.post-cover-caption
+			border: 1px solid #362f2d
+			transition: 0.6s
+		.image_container
+			&:after
+				transition: 0.6s
+				opacity: 0.6
+		.posts-title
+			color: #c7b299
+		.posts-content
+			color: #fff
+		.month
+			background: #a48d72
+			transition: 0.6s
+		.date
+			background: #c7b299
+			transition: 0.6s
+
+	img
+		max-width: 100%
+	a
+		text-decoration: none
+		color: #c7b299
+		i
+			padding-left: 10px
+			font-size: 14px
+		
+	.date
+		width: 50px
+		background: #363636
+		position: absolute
+		top: 20px
+		left: 20px
+		border-top-left-radius: 3px
+		border-top-right-radius: 3px
+	.month
+		width: 50px
+		background: #252525
+		position: absolute
+		top: 55px
+		left: 20px
+		border-bottom-left-radius: 3px
+		border-bottom-right-radius: 3px
+.posts-title
+	font-weight: 500
+	font-size: 20px
+	color: #555555
+	margin-bottom: 16px
+.posts-content
+	font-weight: 300
+	color: #8c8c8c
+	font-size: 14px
+.post-cover-caption
+	border: 1px solid #f8f8f8
+	padding: 30px 0 25px 30px
+.date-number
+	font-weight: 300
+	font-size: 24px
+	color: #fff
+	margin: 0
+	line-height: 1.49
+.month-text
+	font-weight: 300
+	font-size: 12px
+	color: #fff
+	line-height: 2.1
+	margin: 0
+.partners
+	padding: 140px 0 140px 0
+	width: 100%
+	height: auto
+	background-image: url(../img/partners/partners-bg.png)
+	background-size: cover
+.pre-footer
+	background-color: #191919
+	padding-top: 80px
+.footer-title
+	line-height: 3
+	font-weight: 700
+	color: #fff
+	font-size: 24px
+.logo
+	padding-bottom: 30px
+.footer-content
+	font-weight: 300
+	color: #555555
+	font-size: 14px
+	margin: 0
+.footer-link
+	text-decoration: none !important
+	color: #d1d1d1
+	font-family: 'Montserrat', sans-serif
+	font-size: 14px
+	font-weight: 500
+	line-height: 5
+	i
+		font-size: 13px
+		padding-left: 5px
+	&:hover
+			color: #c7b299
+			transition: 0.6s
+.footer-date
+	font-weight: 300
+	color: #363636
+	font-size: 12px
+	margin: 0
+.footer-separator
+	width: 100%
+	height: 1px
+	background: #252525
+	margin: 15px 0 15px 0
+.word-link
+	color: #00bff3
+.another-link
+	color: #959595
+.footer-posts
+	&:hover
+		.footer-date
+			color: #fff
+			transition: 0.6s
+		.footer-content
+			color: #c7b299
+			transition: 0.6s
+.dribbble-image
+	max-width: 44%
+	padding: 0 6px 10px 0
+.footer-info
+	padding-bottom: 80px
+.footer
+	background-color: #111111
+	padding: 45px 0 45px 0
+.footer-copyright
+	p
+		display: inline-block
+		color: #555555
+		padding-right: 27px
+		font-weight: 400
+		font-size: 13px
+		margin: 0
+	a
+		text-decoration: none
+	.copyright-link
+		position: relative
+		color: #555555
+		padding-right: 27px
+		font-family: 'Montserrat', sans-serif
+		font-weight: 400
+		font-size: 13px
+		&:after
+			content: ''
+			position: absolute 
+			left: -15px
+			bottom: 1px
+			height: 12px
+			width: 1px
+			background: #252525
+		&:hover
+			color: #c7b299
+			transition: 0.6s
+.footer-adver
+	a
+		text-decoration: none
+		&:hover
+			color: #c7b299
+			transition: 0.6s
+	p
+		display: inline-block
+		color: #555555
+		padding-right: 27px
+		font-weight: 400
+		font-size: 13px
+		margin: 0
+		&:last-child
+			padding: 0
+			position: relative
+			&:after
+				content: ''
+				position: absolute 
+				left: -15px
+				bottom: 4px
+				height: 12px
+				width: 1px
+				background: #252525
+@media screen and (max-width: 767px)
+	.button-portfolio
+		margin-top: 10px
+	.ideas-caption
+		margin-bottom: 30px
+	.iphone-image
+		text-align: center
+	.features
+		padding-bottom: 80px
+	.post-cover
+		margin-bottom: 30px
+	.footer-copyright
+		margin-bottom: 10px
+		p
+			font-size: 10px
+	.copyright-link
+		font-size: 10px !important
+@media screen and (max-width: 992px)
+	.header
+		height: auto
+		padding-bottom: 200px
+	.service-block
+		margin-bottom: 70px
+	.fix-width
+		width: 100%
+		margin: 0 auto
+	.box-counter
+		margin-bottom: 50px
+	.counters
+		padding-bottom: 20px
+	.footer-block
+		margin-bottom: 30px
+	.footer-adver
+		p
+			padding-right: 5px
+			font-size: 12px
+			&:last-child
+				&:after
+					visibility: hidden
+	.copyright-link
+		&:after
+			visibility: hidden
+@media screen and (max-width: 1200px)
+	.nav-link
+		font-size: 11px
+	.purchase-now
+		margin-top: 35px
+@import "media" // Always at the end
